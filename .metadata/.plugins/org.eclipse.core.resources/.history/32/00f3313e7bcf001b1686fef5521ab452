@@ -1,0 +1,6 @@
+package gerenciador;
+
+public class Empresa {
+
+	private String nome;
+}

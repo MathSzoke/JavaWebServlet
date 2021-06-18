@@ -1,0 +1,37 @@
+package gerenciador;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class NewTestServlet
+ */
+@WebServlet("/newTest")
+public class NewTestServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String nomeEmpresa = request.getParameter("nome");
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		
+		Banco banco = new Banco();
+		
+		PrintWriter printTest = response.getWriter();
+		printTest.println("<html>");
+		printTest.println("<body>");
+		printTest.println("Empresa: " + nomeEmpresa + ", cadastrada com sucesso.");
+		printTest.println("</body>");
+		printTest.println("</html>");
+	}
+
+}
